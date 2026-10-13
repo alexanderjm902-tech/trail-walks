@@ -109,6 +109,30 @@
     font-size: 0.88rem;
   }
   footer a { color: var(--muted); }
+
+  .app-store {
+    text-align: center;
+    margin: 1.5rem 0 1.75rem;
+  }
+  /* Apple badge: do not alter artwork; clear space ~1/4 badge height (~12px at 48px) */
+  .app-store-badge-link {
+    display: inline-block;
+    line-height: 0;
+    padding: 12px; /* clear space around badge */
+    border-radius: 8px;
+    transition: opacity 0.15s ease;
+  }
+  .app-store-badge-link:hover { opacity: 0.9; color: inherit; }
+  .app-store-badge {
+    display: block;
+    height: 48px; /* above Apple's ~40px minimum */
+    width: auto;
+  }
+  .app-store-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
 </style>
 </head>
 <body>
@@ -118,6 +142,19 @@
       <h1>TrailWalks</h1>
       <p class="tagline">Your next adventure starts here.</p>
     </header>
+
+    <!-- App Store CTA: remove .app-store-note when live -->
+    <div class="app-store">
+      <a class="app-store-badge-link"
+         href="https://apps.apple.com/app/id6822451104"
+         target="_blank" rel="noopener noreferrer"
+         aria-label="Download on the App Store">
+        <img class="app-store-badge" src="app-store-badge.svg" width="144" height="48"
+             alt="Download on the App Store">
+      </a>
+      <p class="app-store-note">Coming soon to the App Store</p>
+    </div>
+
 
     <div class="card">
       <p>Find local walks across the UK, record and plan your own trails, and count your steps — all in one place.</p>
