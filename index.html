@@ -1,5 +1,141 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Trail Walks</title>
-<style>body{font-family:-apple-system,system-ui,sans-serif;max-width:640px;margin:3rem auto;padding:0 1rem;line-height:1.6;color:#1b3a2f}a{color:#0a7d5a}</style></head>
-<body><h1>Trail Walks</h1><p>Find local walks across the UK, record and plan your own trails, and count your steps.</p>
-<h2>Support</h2><p>Questions, problems or feedback? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
-<p><a href="privacy/">Privacy Policy</a></p></body></html>
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrailWalks</title>
+<meta name="description" content="Find local walks across the UK, record and plan your own trails, and count your steps with TrailWalks.">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
+<link rel="icon" href="favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+<style>
+  :root {
+    --forest: #0d2818;
+    --deep: #12382a;
+    --teal: #1a6b5c;
+    --mint: #2d9b7a;
+    --cream: #f4f1e6;
+    --cream-soft: rgba(244, 241, 230, 0.92);
+    --muted: rgba(244, 241, 230, 0.78);
+    --card: rgba(13, 40, 24, 0.55);
+    --border: rgba(244, 241, 230, 0.18);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--cream);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45, 155, 122, 0.35), transparent 55%),
+      linear-gradient(165deg, var(--forest) 0%, var(--deep) 42%, var(--teal) 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+  }
+  /* Large faded watermark logo behind content */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("logo.png") center 38% / min(92vw, 560px) no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 2.25rem 1.25rem 3.5rem;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+  .logo {
+    width: min(168px, 42vw);
+    height: auto;
+    border-radius: 22%;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.35),
+      0 0 0 3px rgba(244, 241, 230, 0.12);
+    display: block;
+    margin: 0 auto 1.1rem;
+  }
+  h1 {
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.85rem, 6vw, 2.4rem);
+    letter-spacing: -0.02em;
+    color: var(--cream);
+  }
+  .tagline {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+  .card {
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.35rem 1.4rem;
+    margin: 1rem 0;
+  }
+  h2 {
+    margin: 0 0 0.55rem;
+    font-size: 1.2rem;
+    color: var(--cream);
+  }
+  p { margin: 0.55rem 0; color: var(--cream-soft); }
+  a {
+    color: #8ee0c4;
+    word-break: break-word;
+  }
+  a:hover { color: #b8f0dc; }
+  ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.2em;
+    color: var(--cream-soft);
+  }
+  li { margin: 0.35em 0; }
+  footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  footer a { color: var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <img class="logo" src="logo.png" width="168" height="168" alt="TrailWalks app icon">
+      <h1>TrailWalks</h1>
+      <p class="tagline">Your next adventure starts here.</p>
+    </header>
+
+    <div class="card">
+      <p>Find local walks across the UK, record and plan your own trails, and count your steps — all in one place.</p>
+      <ul>
+        <li>Walks near you and right across the UK</li>
+        <li>Hill walks, coastal paths and routes you create</li>
+        <li>GPS recording, steps, badges and streaks</li>
+      </ul>
+    </div>
+
+    <div class="card">
+      <h2>Support</h2>
+      <p>Questions, problems or feedback? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
+    </div>
+
+    <footer>
+      <p><a href="privacy/">Privacy Policy</a> · © 2026 Jack Mason</p>
+    </footer>
+  </div>
+</body>
+</html>
