@@ -153,6 +153,10 @@
   .suggest .hp { position: absolute; left: -9999px; }
   #thanks { display: none; }
   #thanks:target { display: block; }
+  .app-link { color: inherit; text-decoration: none; }
+  .app-link:hover { color: #b8f0dc; }
+  .more-btn { display: inline-block; padding: 0.55rem 1.3rem; border-radius: 999px; background: #8ee0c4; color: #0d2818; font-weight: 700; text-decoration: none; }
+  .more-btn:hover { background: #b8f0dc; color: #0d2818; }
 </style>
 </head>
 <body>
@@ -163,8 +167,8 @@
     </header>
     <div class="apps">
       <section class="card app" id="trailwalks">
-        <img class="logo" src="logo.png" width="128" height="128" alt="TrailWalks app icon">
-        <h2>TrailWalks</h2>
+        <a href="trailwalks/" class="app-link"><img class="logo" src="logo.png" width="128" height="128" alt="TrailWalks app icon"></a>
+        <h2><a href="trailwalks/" class="app-link">TrailWalks</a></h2>
         <p class="tagline">Your next adventure starts here.</p>
         <p>Find local walks across the UK, record and plan your own trails, and count your steps, all in one place.</p>
         <ul>
@@ -178,11 +182,12 @@
           </a>
           <p class="app-store-note">Coming soon to the App Store</p>
         </div>
+        <p><a class="more-btn" href="trailwalks/">More info</a></p>
         <p class="links"><a href="privacy/">Privacy Policy</a> · <a href="mailto:trailwalksapp@gmail.com">Support</a></p>
       </section>
       <section class="card app" id="shiftpay">
-        <img class="logo" src="shiftpay/logo.png" width="128" height="128" alt="ShiftPay app icon">
-        <h2>ShiftPay</h2>
+        <a href="shiftpay/" class="app-link"><img class="logo" src="shiftpay/logo.png" width="128" height="128" alt="ShiftPay app icon"></a>
+        <h2><a href="shiftpay/" class="app-link">ShiftPay</a></h2>
         <p class="tagline">Your rota and pay, sorted.</p>
         <p>A rota planner for shift workers on 12-hour patterns, with pay worked out for you.</p>
         <ul>
@@ -192,11 +197,12 @@
           <li>Holiday allowance tracker</li>
         </ul>
         <div class="app-store"><span class="badge-soon">Coming soon to the App Store</span></div>
+        <p><a class="more-btn" href="shiftpay/">More info</a></p>
         <p class="links"><a href="shiftpay/privacy/">Privacy Policy</a> · <a href="shiftpay/">Support</a></p>
       </section>
       <section class="card app" id="summitlog">
-        <img class="logo" src="summitlog/logo.png" width="128" height="128" alt="UK Summit Log app icon">
-        <h2>UK Summit Log</h2>
+        <a href="summitlog/" class="app-link"><img class="logo" src="summitlog/logo.png" width="128" height="128" alt="UK Summit Log app icon"></a>
+        <h2><a href="summitlog/" class="app-link">UK Summit Log</a></h2>
         <p class="tagline">Bag every hill.</p>
         <p>A hill bagging tracker for UK hills, with every list built in so it works offline.</p>
         <ul>
@@ -205,6 +211,7 @@
           <li>Log the date, notes and photos, then earn badges</li>
         </ul>
         <div class="app-store"><span class="badge-soon">Coming soon to the App Store</span></div>
+        <p><a class="more-btn" href="summitlog/">More info</a></p>
         <p class="links"><a href="summitlog/privacy/">Privacy Policy</a> · <a href="summitlog/">Support</a></p>
       </section>
     </div>

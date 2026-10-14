@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TrailWalks | MasonMade Apps</title>
+<meta name="description" content="TrailWalks for iPhone: find UK walks, hill walks and coastal paths, record trails and count your steps.">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
+<link rel="icon" href="../favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+<style>
+  :root {
+    --forest: #0d2818;
+    --deep: #12382a;
+    --teal: #1a6b5c;
+    --mint: #2d9b7a;
+    --cream: #f4f1e6;
+    --cream-soft: rgba(244, 241, 230, 0.92);
+    --muted: rgba(244, 241, 230, 0.78);
+    --card: rgba(13, 40, 24, 0.55);
+    --border: rgba(244, 241, 230, 0.18);
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    min-height: 100vh;
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--cream);
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45, 155, 122, 0.35), transparent 55%),
+      linear-gradient(165deg, var(--forest) 0%, var(--deep) 42%, var(--teal) 100%);
+    background-attachment: fixed;
+    position: relative;
+    overflow-x: hidden;
+  }
+  /* Large faded watermark logo behind content */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: url("../logo.png") center 38% / min(92vw, 560px) no-repeat;
+    opacity: 0.14;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.25rem 1.25rem 3.5rem;
+  }
+  header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+  .logo {
+    width: min(168px, 42vw);
+    height: auto;
+    border-radius: 22%;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.35),
+      0 0 0 3px rgba(244, 241, 230, 0.12);
+    display: block;
+    margin: 0 auto 1.1rem;
+  }
+  h1 {
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.85rem, 6vw, 2.4rem);
+    letter-spacing: -0.02em;
+    color: var(--cream);
+  }
+  .tagline {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
+  }
+  .card {
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.35rem 1.4rem;
+    margin: 1rem 0;
+  }
+  h2 {
+    margin: 0 0 0.55rem;
+    font-size: 1.2rem;
+    color: var(--cream);
+  }
+  p { margin: 0.55rem 0; color: var(--cream-soft); }
+  a {
+    color: #8ee0c4;
+    word-break: break-word;
+  }
+  a:hover { color: #b8f0dc; }
+  ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.2em;
+    color: var(--cream-soft);
+  }
+  li { margin: 0.35em 0; }
+  footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  footer a { color: var(--muted); }
+
+  .app-store {
+    text-align: center;
+    margin: 1.5rem 0 1.75rem;
+  }
+  /* Apple badge: do not alter artwork; clear space ~1/4 badge height (~12px at 48px) */
+  .app-store-badge-link {
+    display: inline-block;
+    line-height: 0;
+    padding: 12px; /* clear space around badge */
+    border-radius: 8px;
+    transition: opacity 0.15s ease;
+  }
+  .app-store-badge-link:hover { opacity: 0.9; color: inherit; }
+  .app-store-badge {
+    display: block;
+    height: 48px; /* above Apple's ~40px minimum */
+    width: auto;
+  }
+  .app-store-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+  @media (max-width: 900px) { .apps { grid-template-columns: 1fr; } }
+  .app { display: flex; flex-direction: column; text-align: center; margin: 0; }
+  .app .logo { width: 128px; margin-bottom: 0.9rem; }
+  .app ul { text-align: left; }
+  .app .app-store { margin: 0.75rem 0 0.5rem; }
+  .app .links { margin-top: auto; padding-top: 0.75rem; font-size: 0.95rem; }
+  .badge-soon { display: inline-block; margin: 0.6rem 0 0.25rem; padding: 0.45rem 1rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.9rem; color: var(--muted); }
+  .apps h2 { font-size: 1.5rem; margin-bottom: 0.2rem; }
+  .suggest label { display: block; margin: 0.8rem 0 0.3rem; font-weight: 600; color: var(--cream); font-size: 0.95rem; }
+  .suggest select, .suggest textarea, .suggest input { width: 100%; padding: 0.65rem 0.75rem; border-radius: 10px; border: 1px solid var(--border); background: rgba(244,241,230,0.08); color: var(--cream); font: inherit; }
+  .suggest select option { color: #13241b; }
+  .suggest textarea { min-height: 120px; resize: vertical; }
+  .suggest .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 600px) { .suggest .row2 { grid-template-columns: 1fr; } }
+  .suggest button { margin-top: 1rem; padding: 0.7rem 1.4rem; border: 0; border-radius: 999px; background: #8ee0c4; color: #0d2818; font: inherit; font-weight: 700; cursor: pointer; }
+  .suggest button:hover { background: #b8f0dc; }
+  .suggest .hp { position: absolute; left: -9999px; }
+  #thanks { display: none; }
+  #thanks:target { display: block; }
+
+  .hero { text-align:center; margin-bottom:1.25rem; }
+  .hero .logo { width:min(150px,38vw); }
+  .gallery { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding:6px 2px 14px; -webkit-overflow-scrolling:touch; }
+  .gallery button { flex:0 0 auto; width:min(230px,58vw); padding:0; border:0; background:none; cursor:zoom-in; scroll-snap-align:center; border-radius:18px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.35); }
+  .gallery img { display:block; width:100%; height:auto; }
+  .lb { position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; z-index:50; padding:20px; }
+  .lb.open { display:flex; }
+  .lb img { max-width:100%; max-height:92vh; border-radius:16px; }
+  .lb .x, .lb .nav { position:absolute; background:rgba(255,255,255,.15); color:#fff; border:0; border-radius:999px; width:44px; height:44px; font-size:22px; cursor:pointer; }
+  .lb .x { top:16px; right:16px; } .lb .prev { left:12px; top:50%; } .lb .next { right:12px; top:50%; }
+  .nav-top { margin-bottom:1rem; font-size:.95rem; }
+  .feat h3 { margin:.2rem 0 .3rem; font-size:1.05rem; color:var(--cream); }
+  .feat-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 1.25rem; }
+  @media (max-width:640px){ .feat-grid { grid-template-columns:1fr; } }
+  .soon { display:inline-block; margin-top:.6rem; padding:.45rem 1rem; border:1px solid var(--border); border-radius:999px; font-size:.9rem; color:var(--muted); }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <p class="nav-top"><a href="../">← All MasonMade apps</a></p>
+    <header class="hero">
+      <img class="logo" src="../logo.png" width="150" height="150" alt="TrailWalks app icon">
+      <h1>TrailWalks</h1>
+      <p class="tagline">Your next adventure starts here.</p>
+      <div class="app-store"><a class="app-store-badge-link" href="https://apps.apple.com/app/id6822451104" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store"><img class="app-store-badge" src="../app-store-badge.svg" width="144" height="48" alt="Download on the App Store"></a><p class="app-store-note">Coming soon to the App Store</p></div>
+    </header>
+    <div class="gallery" aria-label="Screenshots"><button type="button" data-lg="shots/01-lg.webp" aria-label="Enlarge screenshot 1"><img src="shots/01.webp" width="600" height="1304" loading="lazy" alt="TrailWalks screenshot 1"></button><button type="button" data-lg="shots/02-lg.webp" aria-label="Enlarge screenshot 2"><img src="shots/02.webp" width="600" height="1304" loading="lazy" alt="TrailWalks screenshot 2"></button><button type="button" data-lg="shots/03-lg.webp" aria-label="Enlarge screenshot 3"><img src="shots/03.webp" width="600" height="1304" loading="lazy" alt="TrailWalks screenshot 3"></button><button type="button" data-lg="shots/04-lg.webp" aria-label="Enlarge screenshot 4"><img src="shots/04.webp" width="600" height="1304" loading="lazy" alt="TrailWalks screenshot 4"></button><button type="button" data-lg="shots/05-lg.webp" aria-label="Enlarge screenshot 5"><img src="shots/05.webp" width="600" height="1304" loading="lazy" alt="TrailWalks screenshot 5"></button></div>
+    <div class="card"><h2>About TrailWalks</h2><p>Find local walks across the UK, record and plan your own trails, and count your steps, all in one place.</p><p>TrailWalks is made by one person who loves to explore. If you think anything needs adding or changing, please leave a review.</p></div>
+    <div class="card"><h2>Features</h2><div class="feat-grid"><div class="feat"><h3>Find walks</h3><ul><li>Walks near you and right across the UK</li><li>Hill walks and coastal paths, such as the Fife Coastal Path</li><li>Search for places and trails</li></ul></div><div class="feat"><h3>Hill walks</h3><ul><li>Thousands of UK peaks and hill paths built in</li><li>Works even with a poor signal</li></ul></div><div class="feat"><h3>Record &amp; plan</h3><ul><li>GPS recording of your walks</li><li>Create your own routes and keep them in My Trails</li><li>Compass for finding your way</li></ul></div><div class="feat"><h3>Steps &amp; achievements</h3><ul><li>Daily step count</li><li>Badges and streaks</li><li>Keep your hiking achievements in one place</li></ul></div></div></div>
+    
+    <div class="card"><h2>Support</h2><p>Questions, problems or feedback? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p></div>
+    <footer><p><a href="../privacy/">Privacy Policy</a> · <a href="../">MasonMade Apps</a> · © MasonMade 2026</p></footer>
+  </div>
+  <div class="lb" role="dialog" aria-modal="true" aria-label="Screenshot"><button class="x" aria-label="Close">×</button><button class="nav prev" aria-label="Previous">‹</button><img alt=""><button class="nav next" aria-label="Next">›</button></div>
+<script>
+(function(){var g=[].slice.call(document.querySelectorAll('.gallery button')),lb=document.querySelector('.lb'),im=lb.querySelector('img'),i=0;
+function show(n){i=(n+g.length)%g.length;im.src=g[i].dataset.lg;im.alt=g[i].querySelector('img').alt;lb.classList.add('open');}
+g.forEach(function(b,n){b.addEventListener('click',function(){show(n)})});
+lb.querySelector('.x').onclick=function(){lb.classList.remove('open')};
+lb.querySelector('.prev').onclick=function(e){e.stopPropagation();show(i-1)};
+lb.querySelector('.next').onclick=function(e){e.stopPropagation();show(i+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});})();
+</script>
+</body>
+</html>

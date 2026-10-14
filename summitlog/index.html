@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>UK Summit Log Support</title>
-<meta name="description" content="Support for the UK Summit Log iOS app.">
+<title>UK Summit Log | MasonMade Apps</title>
+<meta name="description" content="UK Summit Log for iPhone: bag Munros, Corbetts, Wainwrights and 20,000+ UK hills, offline.">
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon.png">
 <link rel="icon" href="../favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
@@ -13,108 +13,193 @@
     --forest: #0d2818;
     --deep: #12382a;
     --teal: #1a6b5c;
-    --green: #1a6b5c;
-    --text: #1f2a1f;
-    --muted: #5b665b;
-    --bg-card: #f7f4eb;
-    --card: #eef3ee;
-    --border: #dde6dd;
+    --mint: #2d9b7a;
     --cream: #f4f1e6;
+    --cream-soft: rgba(244, 241, 230, 0.92);
+    --muted: rgba(244, 241, 230, 0.78);
+    --card: rgba(13, 40, 24, 0.55);
+    --border: rgba(244, 241, 230, 0.18);
   }
   * { box-sizing: border-box; }
   html { -webkit-text-size-adjust: 100%; }
   body {
     margin: 0;
     min-height: 100vh;
-    font: 17px/1.6 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    color: var(--text);
+    font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: var(--cream);
     background:
-      radial-gradient(ellipse 80% 50% at 50% 0%, rgba(45, 155, 122, 0.28), transparent 55%),
-      linear-gradient(165deg, var(--forest) 0%, var(--deep) 40%, var(--teal) 100%);
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(45, 155, 122, 0.35), transparent 55%),
+      linear-gradient(165deg, var(--forest) 0%, var(--deep) 42%, var(--teal) 100%);
     background-attachment: fixed;
     position: relative;
+    overflow-x: hidden;
   }
+  /* Large faded watermark logo behind content */
   body::before {
     content: "";
     position: fixed;
     inset: 0;
-    background: url("../logo.png") center 20% / min(70vw, 420px) no-repeat;
-    opacity: 0.10;
+    background: url("../logo.png") center 38% / min(92vw, 560px) no-repeat;
+    opacity: 0.14;
     pointer-events: none;
     z-index: 0;
   }
-  .site-header {
+  .wrap {
     position: relative;
     z-index: 1;
-    text-align: center;
-    padding: 1.75rem 1.25rem 0.5rem;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.25rem 1.25rem 3.5rem;
   }
-  .site-header a.brand {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.75rem;
-    text-decoration: none;
+  header {
+    text-align: center;
+    margin-bottom: 1.75rem;
+  }
+  .logo {
+    width: min(168px, 42vw);
+    height: auto;
+    border-radius: 22%;
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.35),
+      0 0 0 3px rgba(244, 241, 230, 0.12);
+    display: block;
+    margin: 0 auto 1.1rem;
+  }
+  h1 {
+    margin: 0 0 0.35rem;
+    font-size: clamp(1.85rem, 6vw, 2.4rem);
+    letter-spacing: -0.02em;
     color: var(--cream);
   }
-  .site-header img {
-    width: 56px;
-    height: 56px;
-    border-radius: 22%;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+  .tagline {
+    margin: 0;
+    color: var(--muted);
+    font-size: 1.05rem;
   }
-  .site-header .name {
-    font-weight: 700;
-    font-size: 1.25rem;
-    letter-spacing: -0.02em;
+  .card {
+    background: var(--card);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 1.35rem 1.4rem;
+    margin: 1rem 0;
   }
-  main {
-    position: relative;
-    z-index: 1;
-    max-width: 760px;
-    margin: 1rem auto 0;
-    padding: 28px 22px 64px;
-    background: var(--bg-card);
-    border-radius: 18px 18px 0 0;
-    box-shadow: 0 -4px 40px rgba(0,0,0,0.25);
+  h2 {
+    margin: 0 0 0.55rem;
+    font-size: 1.2rem;
+    color: var(--cream);
   }
-  @media (min-width: 800px) {
-    main { border-radius: 18px; margin-bottom: 3rem; }
+  p { margin: 0.55rem 0; color: var(--cream-soft); }
+  a {
+    color: #8ee0c4;
+    word-break: break-word;
   }
-  h1 { color: var(--green); font-size: 1.9em; line-height: 1.2; margin: 0 0 .4em; }
-  h2 { color: var(--green); font-size: 1.35em; margin: 2em 0 .5em; padding-top: .6em; border-top: 1px solid var(--border); }
-  h3 { font-size: 1.1em; margin: 1.5em 0 .4em; }
-  a { color: var(--green); word-break: break-word; }
-  hr { border: 0; border-top: 1px solid var(--border); margin: 2em 0; }
-  ul, ol { padding-left: 1.3em; }
-  li { margin: .3em 0; }
-  .table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 1em 0; border: 1px solid var(--border); border-radius: 10px; }
-  table { border-collapse: collapse; width: 100%; font-size: .92em; min-width: 520px; }
-  th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--border); }
-  th { background: var(--card); }
-  tr:last-child td { border-bottom: 0; }
-  h1 + p { color: var(--muted); }
-  footer { margin-top: 3em; color: var(--muted); font-size: .85em; }
-  .back { display: inline-block; margin-bottom: 1rem; font-size: 0.95rem; }
+  a:hover { color: #b8f0dc; }
+  ul {
+    margin: 0.4rem 0 0;
+    padding-left: 1.2em;
+    color: var(--cream-soft);
+  }
+  li { margin: 0.35em 0; }
+  footer {
+    margin-top: 2rem;
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.88rem;
+  }
+  footer a { color: var(--muted); }
+
+  .app-store {
+    text-align: center;
+    margin: 1.5rem 0 1.75rem;
+  }
+  /* Apple badge: do not alter artwork; clear space ~1/4 badge height (~12px at 48px) */
+  .app-store-badge-link {
+    display: inline-block;
+    line-height: 0;
+    padding: 12px; /* clear space around badge */
+    border-radius: 8px;
+    transition: opacity 0.15s ease;
+  }
+  .app-store-badge-link:hover { opacity: 0.9; color: inherit; }
+  .app-store-badge {
+    display: block;
+    height: 48px; /* above Apple's ~40px minimum */
+    width: auto;
+  }
+  .app-store-note {
+    margin: 0.35rem 0 0;
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  .apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+  @media (max-width: 900px) { .apps { grid-template-columns: 1fr; } }
+  .app { display: flex; flex-direction: column; text-align: center; margin: 0; }
+  .app .logo { width: 128px; margin-bottom: 0.9rem; }
+  .app ul { text-align: left; }
+  .app .app-store { margin: 0.75rem 0 0.5rem; }
+  .app .links { margin-top: auto; padding-top: 0.75rem; font-size: 0.95rem; }
+  .badge-soon { display: inline-block; margin: 0.6rem 0 0.25rem; padding: 0.45rem 1rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.9rem; color: var(--muted); }
+  .apps h2 { font-size: 1.5rem; margin-bottom: 0.2rem; }
+  .suggest label { display: block; margin: 0.8rem 0 0.3rem; font-weight: 600; color: var(--cream); font-size: 0.95rem; }
+  .suggest select, .suggest textarea, .suggest input { width: 100%; padding: 0.65rem 0.75rem; border-radius: 10px; border: 1px solid var(--border); background: rgba(244,241,230,0.08); color: var(--cream); font: inherit; }
+  .suggest select option { color: #13241b; }
+  .suggest textarea { min-height: 120px; resize: vertical; }
+  .suggest .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 600px) { .suggest .row2 { grid-template-columns: 1fr; } }
+  .suggest button { margin-top: 1rem; padding: 0.7rem 1.4rem; border: 0; border-radius: 999px; background: #8ee0c4; color: #0d2818; font: inherit; font-weight: 700; cursor: pointer; }
+  .suggest button:hover { background: #b8f0dc; }
+  .suggest .hp { position: absolute; left: -9999px; }
+  #thanks { display: none; }
+  #thanks:target { display: block; }
+
+  .hero { text-align:center; margin-bottom:1.25rem; }
+  .hero .logo { width:min(150px,38vw); }
+  .gallery { display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; padding:6px 2px 14px; -webkit-overflow-scrolling:touch; }
+  .gallery button { flex:0 0 auto; width:min(230px,58vw); padding:0; border:0; background:none; cursor:zoom-in; scroll-snap-align:center; border-radius:18px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,.35); }
+  .gallery img { display:block; width:100%; height:auto; }
+  .lb { position:fixed; inset:0; background:rgba(0,0,0,.88); display:none; align-items:center; justify-content:center; z-index:50; padding:20px; }
+  .lb.open { display:flex; }
+  .lb img { max-width:100%; max-height:92vh; border-radius:16px; }
+  .lb .x, .lb .nav { position:absolute; background:rgba(255,255,255,.15); color:#fff; border:0; border-radius:999px; width:44px; height:44px; font-size:22px; cursor:pointer; }
+  .lb .x { top:16px; right:16px; } .lb .prev { left:12px; top:50%; } .lb .next { right:12px; top:50%; }
+  .nav-top { margin-bottom:1rem; font-size:.95rem; }
+  .feat h3 { margin:.2rem 0 .3rem; font-size:1.05rem; color:var(--cream); }
+  .feat-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 1.25rem; }
+  @media (max-width:640px){ .feat-grid { grid-template-columns:1fr; } }
+  .soon { display:inline-block; margin-top:.6rem; padding:.45rem 1rem; border:1px solid var(--border); border-radius:999px; font-size:.9rem; color:var(--muted); }
 </style>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="./">
-    <img src="logo.png" width="56" height="56" alt="">
-    <span class="name">UK Summit Log</span>
-  </a>
-</header>
-<main>
-<h1>UK Summit Log Support</h1>
-<p>UK Summit Log is a hill bagging app covering all 20,000+ hills in the UK, the Isle of Man and the Channel Islands. That includes 30 lists, such as Munros, Corbetts, Grahams, Donalds, Wainwrights, Birketts, Hewitts, Nuttalls, Deweys, Marilyns, HuMPs, Simms, Tumps and county tops. All the hill data is built in, so it works offline.</p>
-<h2>Contact</h2>
-<p>If you have a question, find a bug or want to suggest a feature, email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
-<h2>Common questions</h2>
-<p><strong>Is my log backed up?</strong> Only when you back it up yourself. Use Settings, then Export backup, and keep the file somewhere safe. Photos aren't included.</p>
+  <div class="wrap">
+    <p class="nav-top"><a href="../">← All MasonMade apps</a></p>
+    <header class="hero">
+      <img class="logo" src="logo.png" width="150" height="150" alt="UK Summit Log app icon">
+      <h1>UK Summit Log</h1>
+      <p class="tagline">Every UK hill in your pocket.</p>
+      <span class="soon">Coming soon to the App Store</span>
+    </header>
+    <div class="gallery" aria-label="Screenshots"><button type="button" data-lg="shots/01-lg.webp" aria-label="Enlarge screenshot 1"><img src="shots/01.webp" width="600" height="1304" loading="lazy" alt="UK Summit Log screenshot 1"></button><button type="button" data-lg="shots/02-lg.webp" aria-label="Enlarge screenshot 2"><img src="shots/02.webp" width="600" height="1304" loading="lazy" alt="UK Summit Log screenshot 2"></button><button type="button" data-lg="shots/03-lg.webp" aria-label="Enlarge screenshot 3"><img src="shots/03.webp" width="600" height="1304" loading="lazy" alt="UK Summit Log screenshot 3"></button><button type="button" data-lg="shots/04-lg.webp" aria-label="Enlarge screenshot 4"><img src="shots/04.webp" width="600" height="1304" loading="lazy" alt="UK Summit Log screenshot 4"></button><button type="button" data-lg="shots/05-lg.webp" aria-label="Enlarge screenshot 5"><img src="shots/05.webp" width="600" height="1304" loading="lazy" alt="UK Summit Log screenshot 5"></button></div>
+    <div class="card"><h2>About UK Summit Log</h2><p>UK Summit Log is a simple, private hill-bagging app for walkers and hillwalkers. More than 20,000 UK hills from the Database of British and Irish Hills are built in, so it works offline on the hill, with no signal needed.</p><p>Made by one person in the UK who loves the hills. If anything needs adding or changing, please leave a review.</p></div>
+    <div class="card"><h2>Features</h2><div class="feat-grid"><div class="feat"><h3>Track every list</h3><ul><li>Munros, Munro Tops, Corbetts, Grahams, Donalds and Murdos</li><li>Wainwrights, Birketts, Hewitts, Nuttalls and Deweys</li><li>Marilyns, HuMPs, Simms, Tumps and county tops</li><li>See your progress for every list at a glance</li></ul></div><div class="feat"><h3>See what’s left to climb</h3><ul><li>Map of bagged and still-to-do hills</li><li>Search and filter by list and region</li></ul></div><div class="feat"><h3>Log every summit</h3><ul><li>Tick off a hill with the date you climbed it</li><li>Add notes and a photo for each summit</li><li>Height, lists and coordinates for every hill</li></ul></div><div class="feat"><h3>Stats &amp; badges</h3><ul><li>Hills bagged, total summit height and your highest hill</li><li>Hills by year and your recent summits</li><li>Badges for milestones from your first Munro to compleation</li></ul></div><div class="feat"><h3>Private by design</h3><ul><li>No account, no ads, no tracking</li><li>Your log stays on your phone, and you can export a backup whenever you like</li></ul></div></div></div>
+    <div class="card"><p style="font-size:.92rem">Hill data: <a href="https://www.hill-bagging.co.uk/dobih">The Database of British and Irish Hills</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Always check conditions and take a map and compass on the hill.</p></div>
+    <div class="card" id="support"><h2>Support</h2><p>If you have a question, find a bug or want to suggest a feature, email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
+<h3>Common questions</h3><p><strong>Is my log backed up?</strong> Only when you back it up yourself. Use Settings, then Export backup, and keep the file somewhere safe. Photos aren't included.</p>
 <p><strong>Where does the hill data come from?</strong> The Database of British and Irish Hills (<a href="https://www.hill-bagging.co.uk/dobih">hill-bagging.co.uk/dobih</a>), CC BY 4.0.</p>
-<h2>Privacy</h2>
-<p>Read the <a href="privacy/">UK Summit Log Privacy Policy</a>.</p>
-<footer>© MasonMade 2026 · UK Summit Log</footer>
-</main>
+<p>Read the <a href="privacy/">UK Summit Log Privacy Policy</a>.</p></div>
+    <footer><p><a href="privacy/">Privacy Policy</a> · <a href="../">MasonMade Apps</a> · © MasonMade 2026</p></footer>
+  </div>
+  <div class="lb" role="dialog" aria-modal="true" aria-label="Screenshot"><button class="x" aria-label="Close">×</button><button class="nav prev" aria-label="Previous">‹</button><img alt=""><button class="nav next" aria-label="Next">›</button></div>
+<script>
+(function(){var g=[].slice.call(document.querySelectorAll('.gallery button')),lb=document.querySelector('.lb'),im=lb.querySelector('img'),i=0;
+function show(n){i=(n+g.length)%g.length;im.src=g[i].dataset.lg;im.alt=g[i].querySelector('img').alt;lb.classList.add('open');}
+g.forEach(function(b,n){b.addEventListener('click',function(){show(n)})});
+lb.querySelector('.x').onclick=function(){lb.classList.remove('open')};
+lb.querySelector('.prev').onclick=function(e){e.stopPropagation();show(i-1)};
+lb.querySelector('.next').onclick=function(e){e.stopPropagation();show(i+1)};
+lb.addEventListener('click',function(e){if(e.target===lb)lb.classList.remove('open')});
+document.addEventListener('keydown',function(e){if(!lb.classList.contains('open'))return;if(e.key==='Escape')lb.classList.remove('open');if(e.key==='ArrowLeft')show(i-1);if(e.key==='ArrowRight')show(i+1)});})();
+</script>
 </body>
 </html>
