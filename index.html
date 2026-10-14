@@ -142,6 +142,17 @@
   .app .links { margin-top: auto; padding-top: 0.75rem; font-size: 0.95rem; }
   .badge-soon { display: inline-block; margin: 0.6rem 0 0.25rem; padding: 0.45rem 1rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.9rem; color: var(--muted); }
   .apps h2 { font-size: 1.5rem; margin-bottom: 0.2rem; }
+  .suggest label { display: block; margin: 0.8rem 0 0.3rem; font-weight: 600; color: var(--cream); font-size: 0.95rem; }
+  .suggest select, .suggest textarea, .suggest input { width: 100%; padding: 0.65rem 0.75rem; border-radius: 10px; border: 1px solid var(--border); background: rgba(244,241,230,0.08); color: var(--cream); font: inherit; }
+  .suggest select option { color: #13241b; }
+  .suggest textarea { min-height: 120px; resize: vertical; }
+  .suggest .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 600px) { .suggest .row2 { grid-template-columns: 1fr; } }
+  .suggest button { margin-top: 1rem; padding: 0.7rem 1.4rem; border: 0; border-radius: 999px; background: #8ee0c4; color: #0d2818; font: inherit; font-weight: 700; cursor: pointer; }
+  .suggest button:hover { background: #b8f0dc; }
+  .suggest .hp { position: absolute; left: -9999px; }
+  #thanks { display: none; }
+  #thanks:target { display: block; }
 </style>
 </head>
 <body>
@@ -200,6 +211,30 @@
     <div class="card">
       <h2>Support</h2>
       <p>Questions, problems or feedback about any of the apps? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
+    </div>
+    <div class="card suggest" id="suggestions">
+      <h2>Suggestions &amp; improvements</h2>
+      <p>Have an idea, or something you'd like changed? I read every suggestion.</p>
+      <div id="thanks" class="card" style="margin:0.5rem 0"><p><strong>Thanks!</strong> Your suggestion has been sent.</p></div>
+      <form action="https://formsubmit.co/trailwalksapp@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Website suggestion">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://alexanderjm902-tech.github.io/trail-walks/#thanks">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <label for="s-app">Which app?</label>
+        <select id="s-app" name="app" required>
+          <option>TrailWalks</option><option>ShiftPay</option><option>UK Summit Log</option><option>Website</option>
+        </select>
+        <label for="s-text">Your suggestion</label>
+        <textarea id="s-text" name="suggestion" required maxlength="3000" placeholder="What would make the app better?"></textarea>
+        <div class="row2">
+          <div><label for="s-name">Name (optional)</label><input id="s-name" type="text" name="name" autocomplete="name"></div>
+          <div><label for="s-email">Email (optional, if you'd like a reply)</label><input id="s-email" type="email" name="email" autocomplete="email"></div>
+        </div>
+        <button type="submit">Send suggestion</button>
+      </form>
+      <p style="font-size:0.9rem">Prefer email? <a href="mailto:trailwalksapp@gmail.com?subject=App%20suggestion">trailwalksapp@gmail.com</a></p>
     </div>
     <footer><p>© 2026 Jack</p></footer>
   </div>
