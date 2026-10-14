@@ -157,6 +157,12 @@
   .app-link:hover { color: #b8f0dc; }
   .more-btn { display: inline-block; padding: 0.55rem 1.3rem; border-radius: 999px; background: #8ee0c4; color: #0d2818; font-weight: 700; text-decoration: none; }
   .more-btn:hover { background: #b8f0dc; color: #0d2818; }
+  .cbs { border: 0; padding: 0; margin: 0.8rem 0 0; }
+  .cbs legend { font-weight: 600; color: var(--cream); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .cb { display: inline-flex !important; align-items: center; gap: 0.4rem; margin: 0.2rem 1.1rem 0.2rem 0 !important; font-weight: 500 !important; }
+  .cb input { width: auto !important; accent-color: #8ee0c4; }
+  .consent { font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; }
+  #subscribed { display: none; } #subscribed:target { display: block; }
 </style>
 </head>
 <body>
@@ -221,6 +227,25 @@
     <div class="card">
       <h2>Support</h2>
       <p>Questions, problems or feedback about any of the apps? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
+    </div>
+    <div id="subscribed" class="card"><p><strong>Thanks, you're on the list!</strong> I'll email you when the app launches.</p></div>
+    <div class="card suggest notify" id="notify">
+      <h2>Get notified at launch</h2>
+      <p>Leave your email and I'll let you know when each app is on the App Store.</p>
+      <form action="https://formsubmit.co/trailwalksapp@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Launch signup">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://masonmade.co.uk/#subscribed">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="row2">
+          <div><label for="n-email">Email</label><input id="n-email" type="email" name="email" required autocomplete="email"></div>
+          <div><label for="n-name">Name (optional)</label><input id="n-name" type="text" name="name" autocomplete="name"></div>
+        </div>
+        <fieldset class="cbs"><legend>Which apps?</legend><label class="cb"><input type="checkbox" name="apps" value="TrailWalks" checked> TrailWalks</label><label class="cb"><input type="checkbox" name="apps" value="ShiftPay" checked> ShiftPay</label><label class="cb"><input type="checkbox" name="apps" value="UK Summit Log" checked> UK Summit Log</label></fieldset>
+        <button type="submit">Notify me</button>
+        <p class="consent">We'll only email you when the app launches. No spam, unsubscribe any time.</p>
+      </form>
     </div>
     <div class="card suggest" id="suggestions">
       <h2>Suggestions &amp; improvements</h2>

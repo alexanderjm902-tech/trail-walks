@@ -169,6 +169,21 @@
   .feat-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 1.25rem; }
   @media (max-width:640px){ .feat-grid { grid-template-columns:1fr; } }
   .soon { display:inline-block; margin-top:.6rem; padding:.45rem 1rem; border:1px solid var(--border); border-radius:999px; font-size:.9rem; color:var(--muted); }
+  .suggest label { display: block; margin: 0.8rem 0 0.3rem; font-weight: 600; color: var(--cream); font-size: 0.95rem; }
+  .suggest select, .suggest textarea, .suggest input { width: 100%; padding: 0.65rem 0.75rem; border-radius: 10px; border: 1px solid var(--border); background: rgba(244,241,230,0.08); color: var(--cream); font: inherit; }
+  .suggest select option { color: #13241b; }
+  .suggest textarea { min-height: 120px; resize: vertical; }
+  .suggest .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 600px) { .suggest .row2 { grid-template-columns: 1fr; } }
+  .suggest button { margin-top: 1rem; padding: 0.7rem 1.4rem; border: 0; border-radius: 999px; background: #8ee0c4; color: #0d2818; font: inherit; font-weight: 700; cursor: pointer; }
+  .suggest button:hover { background: #b8f0dc; }
+  .suggest .hp { position: absolute; left: -9999px; }
+  .cbs { border: 0; padding: 0; margin: 0.8rem 0 0; }
+  .cbs legend { font-weight: 600; color: var(--cream); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .cb { display: inline-flex !important; align-items: center; gap: 0.4rem; margin: 0.2rem 1.1rem 0.2rem 0 !important; font-weight: 500 !important; }
+  .cb input { width: auto !important; accent-color: #8ee0c4; }
+  .consent { font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; }
+  #subscribed { display: none; } #subscribed:target { display: block; }
 </style>
 </head>
 <body>
@@ -184,6 +199,25 @@
     <div class="card"><h2>About UK Summit Log</h2><p>UK Summit Log is a simple, private hill-bagging app for walkers and hillwalkers. More than 20,000 UK hills from the Database of British and Irish Hills are built in, so it works offline on the hill, with no signal needed.</p><p>Made by one person in the UK who loves the hills. If anything needs adding or changing, please leave a review.</p></div>
     <div class="card"><h2>Features</h2><div class="feat-grid"><div class="feat"><h3>Track every list</h3><ul><li>Munros, Munro Tops, Corbetts, Grahams, Donalds and Murdos</li><li>Wainwrights, Birketts, Hewitts, Nuttalls and Deweys</li><li>Marilyns, HuMPs, Simms, Tumps and county tops</li><li>See your progress for every list at a glance</li></ul></div><div class="feat"><h3>See what’s left to climb</h3><ul><li>Map of bagged and still-to-do hills</li><li>Search and filter by list and region</li></ul></div><div class="feat"><h3>Log every summit</h3><ul><li>Tick off a hill with the date you climbed it</li><li>Add notes and a photo for each summit</li><li>Height, lists and coordinates for every hill</li></ul></div><div class="feat"><h3>Stats &amp; badges</h3><ul><li>Hills bagged, total summit height and your highest hill</li><li>Hills by year and your recent summits</li><li>Badges for milestones from your first Munro to compleation</li></ul></div><div class="feat"><h3>Private by design</h3><ul><li>No account, no ads, no tracking</li><li>Your log stays on your phone, and you can export a backup whenever you like</li></ul></div></div></div>
     <div class="card"><p style="font-size:.92rem">Hill data: <a href="https://www.hill-bagging.co.uk/dobih">The Database of British and Irish Hills</a>, licensed <a href="https://creativecommons.org/licenses/by/4.0/">CC BY 4.0</a>. Always check conditions and take a map and compass on the hill.</p></div>
+    <div class="card suggest notify" id="notify">
+      <h2>Get notified at launch</h2>
+      <p>Want to know when it's on the App Store? Leave your email.</p>
+      <form action="https://formsubmit.co/trailwalksapp@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Launch signup">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://masonmade.co.uk/#subscribed">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="row2">
+          <div><label for="n-email">Email</label><input id="n-email" type="email" name="email" required autocomplete="email"></div>
+          <div><label for="n-name">Name (optional)</label><input id="n-name" type="text" name="name" autocomplete="name"></div>
+        </div>
+        <fieldset class="cbs"><legend>Which apps?</legend><label class="cb"><input type="checkbox" name="apps" value="TrailWalks"> TrailWalks</label><label class="cb"><input type="checkbox" name="apps" value="ShiftPay"> ShiftPay</label><label class="cb"><input type="checkbox" name="apps" value="UK Summit Log" checked> UK Summit Log</label></fieldset>
+        <button type="submit">Notify me</button>
+        <p class="consent">We'll only email you when the app launches. No spam, unsubscribe any time.</p>
+      </form>
+    </div>
+
     <div class="card" id="support"><h2>Support</h2><p>If you have a question, find a bug or want to suggest a feature, email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
 <h3>Common questions</h3><p><strong>Is my log backed up?</strong> Only when you back it up yourself. Use Settings, then Export backup, and keep the file somewhere safe. Photos aren't included.</p>
 <p><strong>Where does the hill data come from?</strong> The Database of British and Irish Hills (<a href="https://www.hill-bagging.co.uk/dobih">hill-bagging.co.uk/dobih</a>), CC BY 4.0.</p>

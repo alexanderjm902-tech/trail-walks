@@ -169,6 +169,21 @@
   .feat-grid { display:grid; grid-template-columns:1fr 1fr; gap:0 1.25rem; }
   @media (max-width:640px){ .feat-grid { grid-template-columns:1fr; } }
   .soon { display:inline-block; margin-top:.6rem; padding:.45rem 1rem; border:1px solid var(--border); border-radius:999px; font-size:.9rem; color:var(--muted); }
+  .suggest label { display: block; margin: 0.8rem 0 0.3rem; font-weight: 600; color: var(--cream); font-size: 0.95rem; }
+  .suggest select, .suggest textarea, .suggest input { width: 100%; padding: 0.65rem 0.75rem; border-radius: 10px; border: 1px solid var(--border); background: rgba(244,241,230,0.08); color: var(--cream); font: inherit; }
+  .suggest select option { color: #13241b; }
+  .suggest textarea { min-height: 120px; resize: vertical; }
+  .suggest .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+  @media (max-width: 600px) { .suggest .row2 { grid-template-columns: 1fr; } }
+  .suggest button { margin-top: 1rem; padding: 0.7rem 1.4rem; border: 0; border-radius: 999px; background: #8ee0c4; color: #0d2818; font: inherit; font-weight: 700; cursor: pointer; }
+  .suggest button:hover { background: #b8f0dc; }
+  .suggest .hp { position: absolute; left: -9999px; }
+  .cbs { border: 0; padding: 0; margin: 0.8rem 0 0; }
+  .cbs legend { font-weight: 600; color: var(--cream); font-size: 0.95rem; margin-bottom: 0.3rem; }
+  .cb { display: inline-flex !important; align-items: center; gap: 0.4rem; margin: 0.2rem 1.1rem 0.2rem 0 !important; font-weight: 500 !important; }
+  .cb input { width: auto !important; accent-color: #8ee0c4; }
+  .consent { font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; }
+  #subscribed { display: none; } #subscribed:target { display: block; }
 </style>
 </head>
 <body>
@@ -183,6 +198,25 @@
     <div class="gallery" aria-label="Screenshots"><button type="button" data-lg="shots/01-lg.webp" aria-label="Enlarge screenshot 1"><img src="shots/01.webp" width="600" height="1304" loading="lazy" alt="ShiftPay screenshot 1"></button><button type="button" data-lg="shots/02-lg.webp" aria-label="Enlarge screenshot 2"><img src="shots/02.webp" width="600" height="1304" loading="lazy" alt="ShiftPay screenshot 2"></button><button type="button" data-lg="shots/03-lg.webp" aria-label="Enlarge screenshot 3"><img src="shots/03.webp" width="600" height="1304" loading="lazy" alt="ShiftPay screenshot 3"></button><button type="button" data-lg="shots/04-lg.webp" aria-label="Enlarge screenshot 4"><img src="shots/04.webp" width="600" height="1304" loading="lazy" alt="ShiftPay screenshot 4"></button><button type="button" data-lg="shots/05-lg.webp" aria-label="Enlarge screenshot 5"><img src="shots/05.webp" width="600" height="1304" loading="lazy" alt="ShiftPay screenshot 5"></button></div>
     <div class="card"><h2>About ShiftPay</h2><p>ShiftPay is a rota planner and pay estimator for UK shift workers, built for 12-hour patterns. You can plan your rota, see what each shift earns, estimate your take-home pay and keep track of your holidays, all on your phone.</p></div>
     <div class="card"><h2>Features</h2><div class="feat-grid"><div class="feat"><h3>Rota calendar</h3><ul><li>Preset 12-hour patterns, or build your own</li><li>Colour-coded days with bank holidays marked</li><li>Log swaps, overtime, holiday and sickness on any day</li></ul></div><div class="feat"><h3>Pay per shift</h3><ul><li>Rates for nights, weekends and bank holidays</li><li>Overtime worked out for you</li><li>See what each shift earns</li></ul></div><div class="feat"><h3>Take-home estimate</h3><ul><li>UK 2026/27 tax and NI, including Scottish tax</li><li>Pension and student loan deductions</li><li>An estimate only, so always check your payslip</li></ul></div><div class="feat"><h3>Holidays &amp; reminders</h3><ul><li>Track your allowance, booked days and what’s left</li><li>Reminders before shifts and sleep reminders on nights</li><li>Share your rota with a link</li></ul></div><div class="feat"><h3>Private</h3><ul><li>No account, no ads, no tracking</li><li>Everything stays on your phone</li></ul></div></div></div>
+    <div class="card suggest notify" id="notify">
+      <h2>Get notified at launch</h2>
+      <p>Want to know when it's on the App Store? Leave your email.</p>
+      <form action="https://formsubmit.co/trailwalksapp@gmail.com" method="POST">
+        <input type="hidden" name="_subject" value="Launch signup">
+        <input type="hidden" name="_captcha" value="true">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_next" value="https://masonmade.co.uk/#subscribed">
+        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <div class="row2">
+          <div><label for="n-email">Email</label><input id="n-email" type="email" name="email" required autocomplete="email"></div>
+          <div><label for="n-name">Name (optional)</label><input id="n-name" type="text" name="name" autocomplete="name"></div>
+        </div>
+        <fieldset class="cbs"><legend>Which apps?</legend><label class="cb"><input type="checkbox" name="apps" value="TrailWalks"> TrailWalks</label><label class="cb"><input type="checkbox" name="apps" value="ShiftPay" checked> ShiftPay</label><label class="cb"><input type="checkbox" name="apps" value="UK Summit Log"> UK Summit Log</label></fieldset>
+        <button type="submit">Notify me</button>
+        <p class="consent">We'll only email you when the app launches. No spam, unsubscribe any time.</p>
+      </form>
+    </div>
+
     
     <div class="card" id="support"><h2>Support</h2><p>If you have a question, find a bug or want to suggest a feature, email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>. I usually reply within a few days.</p>
 <h3>Common questions</h3><p><strong>Is my data backed up?</strong> No. Everything is stored only on your iPhone, and deleting the app deletes your data.</p>
