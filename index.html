@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>TrailWalks</title>
-<meta name="description" content="Find local walks across the UK, record and plan your own trails, and count your steps with TrailWalks.">
+<title>Jack's Apps: TrailWalks &amp; ShiftPay</title>
+<meta name="description" content="iPhone apps by Jack: TrailWalks for UK walks and ShiftPay for shift rotas and pay.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -47,7 +47,7 @@
   .wrap {
     position: relative;
     z-index: 1;
-    max-width: 640px;
+    max-width: 1040px;
     margin: 0 auto;
     padding: 2.25rem 1.25rem 3.5rem;
   }
@@ -133,46 +133,62 @@
     font-size: 0.9rem;
     color: var(--muted);
   }
+  .apps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: stretch; }
+  @media (max-width: 760px) { .apps { grid-template-columns: 1fr; } }
+  .app { display: flex; flex-direction: column; text-align: center; margin: 0; }
+  .app .logo { width: 128px; margin-bottom: 0.9rem; }
+  .app ul { text-align: left; }
+  .app .app-store { margin: 0.75rem 0 0.5rem; }
+  .app .links { margin-top: auto; padding-top: 0.75rem; font-size: 0.95rem; }
+  .badge-soon { display: inline-block; margin: 0.6rem 0 0.25rem; padding: 0.45rem 1rem; border: 1px solid var(--border); border-radius: 999px; font-size: 0.9rem; color: var(--muted); }
+  .apps h2 { font-size: 1.5rem; margin-bottom: 0.2rem; }
 </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <img class="logo" src="logo.png" width="168" height="168" alt="TrailWalks app icon">
-      <h1>TrailWalks</h1>
-      <p class="tagline">Your next adventure starts here.</p>
+      <h1>Jack's Apps</h1>
+      <p class="tagline">Simple iPhone apps made by one person in the UK. No ads, no tracking.</p>
     </header>
-
-    <!-- App Store CTA: remove .app-store-note when live -->
-    <div class="app-store">
-      <a class="app-store-badge-link"
-         href="https://apps.apple.com/app/id6822451104"
-         target="_blank" rel="noopener noreferrer"
-         aria-label="Download on the App Store">
-        <img class="app-store-badge" src="app-store-badge.svg" width="144" height="48"
-             alt="Download on the App Store">
-      </a>
-      <p class="app-store-note">Coming soon to the App Store</p>
+    <div class="apps">
+      <section class="card app" id="trailwalks">
+        <img class="logo" src="logo.png" width="128" height="128" alt="TrailWalks app icon">
+        <h2>TrailWalks</h2>
+        <p class="tagline">Your next adventure starts here.</p>
+        <p>Find local walks across the UK, record and plan your own trails, and count your steps, all in one place.</p>
+        <ul>
+          <li>Walks near you and right across the UK</li>
+          <li>Hill walks, coastal paths and routes you create</li>
+          <li>GPS recording, steps, badges and streaks</li>
+        </ul>
+        <div class="app-store">
+          <a class="app-store-badge-link" href="https://apps.apple.com/app/id6822451104" target="_blank" rel="noopener noreferrer" aria-label="Download on the App Store">
+            <img class="app-store-badge" src="app-store-badge.svg" width="144" height="48" alt="Download on the App Store">
+          </a>
+          <p class="app-store-note">Coming soon to the App Store</p>
+        </div>
+        <p class="links"><a href="privacy/">Privacy Policy</a> · <a href="mailto:trailwalksapp@gmail.com">Support</a></p>
+      </section>
+      <section class="card app" id="shiftpay">
+        <img class="logo" src="shiftpay/logo.png" width="128" height="128" alt="ShiftPay app icon">
+        <h2>ShiftPay</h2>
+        <p class="tagline">Your rota and pay, sorted.</p>
+        <p>A rota planner for shift workers on 12-hour patterns, with pay worked out for you.</p>
+        <ul>
+          <li>Rotating 12-hour shift patterns, plus swaps and overtime</li>
+          <li>Pay including nights, weekends and bank holidays</li>
+          <li>UK take-home estimate, including Scottish tax</li>
+          <li>Holiday allowance tracker</li>
+        </ul>
+        <div class="app-store"><span class="badge-soon">Coming soon to the App Store</span></div>
+        <p class="links"><a href="shiftpay/privacy/">Privacy Policy</a> · <a href="shiftpay/">Support</a></p>
+      </section>
     </div>
-
-
-    <div class="card">
-      <p>Find local walks across the UK, record and plan your own trails, and count your steps — all in one place.</p>
-      <ul>
-        <li>Walks near you and right across the UK</li>
-        <li>Hill walks, coastal paths and routes you create</li>
-        <li>GPS recording, steps, badges and streaks</li>
-      </ul>
-    </div>
-
     <div class="card">
       <h2>Support</h2>
-      <p>Questions, problems or feedback? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
+      <p>Questions, problems or feedback about either app? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
     </div>
-
-    <footer>
-      <p><a href="privacy/">Privacy Policy</a> · © 2026 Jack Mason</p>
-    </footer>
+    <footer><p>© 2026 Jack Mason</p></footer>
   </div>
 </body>
 </html>
