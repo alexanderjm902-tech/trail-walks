@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MasonMade Apps: TrailWalks, ShiftPay &amp; UK Summit Log</title>
 <meta name="description" content="iPhone apps by Jack: TrailWalks for UK walks and ShiftPay for shift rotas and pay, and UK Summit Log for hill bagging.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="MasonMade Apps">
+<meta property="og:description" content="Simple iPhone apps made by one person in the UK: TrailWalks, ShiftPay and UK Summit Log.">
+<meta property="og:url" content="https://masonmade.co.uk/">
+<meta property="og:image" content="https://masonmade.co.uk/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://masonmade.co.uk/og-image.png">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -39,8 +48,8 @@
     content: "";
     position: fixed;
     inset: 0;
-    background: url("logo.png") center 38% / min(92vw, 560px) no-repeat;
-    opacity: 0.14;
+    background: url("mm-mark.png") center 38% / min(92vw, 560px) no-repeat;
+    opacity: 0.07;
     pointer-events: none;
     z-index: 0;
   }
@@ -163,12 +172,15 @@
   .cb input { width: auto !important; accent-color: #8ee0c4; }
   .consent { font-size: 0.85rem; color: var(--muted); margin-top: 0.6rem; }
   #subscribed { display: none; } #subscribed:target { display: block; }
+  .brand-h1 { margin: 0 0 0.5rem; line-height: 0; }
+  .brand-h1 img { width: min(320px, 72vw); height: auto; }
+  .vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
 </style>
 </head>
 <body>
   <div class="wrap">
     <header>
-      <h1>MasonMade Apps</h1>
+      <h1 class="brand-h1"><img src="mm-logo-white.png" width="360" height="208" alt="MasonMade"><span class="vh">MasonMade Apps</span></h1>
       <p class="tagline">Simple iPhone apps made by one person in the UK. No ads, no tracking, no subscriptions. Just a one-time payment that supports an independent local developer.</p>
     </header>
     <div class="apps">
