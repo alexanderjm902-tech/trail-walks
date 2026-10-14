@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Jack's Apps: TrailWalks &amp; ShiftPay</title>
-<meta name="description" content="iPhone apps by Jack: TrailWalks for UK walks and ShiftPay for shift rotas and pay.">
+<title>Jack's Apps: TrailWalks, ShiftPay &amp; Summit Log</title>
+<meta name="description" content="iPhone apps by Jack: TrailWalks for UK walks and ShiftPay for shift rotas and pay, and Summit Log for hill bagging.">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon.png">
 <link rel="icon" href="favicon.ico">
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
@@ -47,7 +47,7 @@
   .wrap {
     position: relative;
     z-index: 1;
-    max-width: 1040px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 2.25rem 1.25rem 3.5rem;
   }
@@ -133,8 +133,8 @@
     font-size: 0.9rem;
     color: var(--muted);
   }
-  .apps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; align-items: stretch; }
-  @media (max-width: 760px) { .apps { grid-template-columns: 1fr; } }
+  .apps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; align-items: stretch; }
+  @media (max-width: 900px) { .apps { grid-template-columns: 1fr; } }
   .app { display: flex; flex-direction: column; text-align: center; margin: 0; }
   .app .logo { width: 128px; margin-bottom: 0.9rem; }
   .app ul { text-align: left; }
@@ -183,10 +183,23 @@
         <div class="app-store"><span class="badge-soon">Coming soon to the App Store</span></div>
         <p class="links"><a href="shiftpay/privacy/">Privacy Policy</a> · <a href="shiftpay/">Support</a></p>
       </section>
+      <section class="card app" id="summitlog">
+        <img class="logo" src="logo.png" width="128" height="128" alt="Summit Log app icon">
+        <h2>Summit Log</h2>
+        <p class="tagline">Bag every hill.</p>
+        <p>A hill bagging tracker for UK hills, with every list built in so it works offline.</p>
+        <ul>
+          <li>Munros, Corbetts, Grahams, Wainwrights, Marilyns and more</li>
+          <li>Progress for each list, plus a map of bagged and unbagged hills</li>
+          <li>Log the date, notes and photos, then earn badges</li>
+        </ul>
+        <div class="app-store"><span class="badge-soon">Coming soon to the App Store</span></div>
+        <p class="links"><a href="summitlog/privacy/">Privacy Policy</a> · <a href="summitlog/">Support</a></p>
+      </section>
     </div>
     <div class="card">
       <h2>Support</h2>
-      <p>Questions, problems or feedback about either app? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
+      <p>Questions, problems or feedback about any of the apps? Email <a href="mailto:trailwalksapp@gmail.com">trailwalksapp@gmail.com</a>.</p>
     </div>
     <footer><p>© 2026 Jack</p></footer>
   </div>
